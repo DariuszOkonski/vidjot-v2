@@ -9,7 +9,10 @@ app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 app.get('/', (req, res) => {
-  res.render('index');
+  const title = 'Welcome';
+  res.render('index', {
+    title,
+  });
 });
 
 app.get('/about', (req, res) => {
