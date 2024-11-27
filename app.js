@@ -12,6 +12,9 @@ db.once('open', () => {
 });
 // ====================
 
+require('./models/Idea');
+const Idea = mongoose.model('ideas');
+
 const app = express();
 
 // hbs middleware
