@@ -5,7 +5,9 @@
 
 <div class='card card-body'>
   <h3>Edit Video Idea</h3>
-  <form action='/ideas' method='POST'>
+  <form action='/ideas/{{idea._id}}?_method=PUT' method='POST'>
+    {{! field required by method-override }}
+    <input type='hidden' name='_method' value='PUT' />
     <div class='form-group'>
       <label for='title'>Title</label>
       <input
