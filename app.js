@@ -1,5 +1,6 @@
 // bootstrap 4.6
 const express = require('express');
+const path = require('path');
 const { engine } = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -29,6 +30,9 @@ app.set('views', './views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // express session
 app.use(methodOverride('_method'));
