@@ -7,11 +7,11 @@ const passport = require('passport');
 require('../models/User');
 const User = mongoose.model('users');
 
-router.get('/login', (req, res, next) => {
+router.get('/login', (req, res) => {
   res.render('users/login');
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/ideas',
     failureRedirect: '/users/login',
