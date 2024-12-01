@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
 const mongoose = require('mongoose');
+const passport = require('passport');
 
 // db connection
 mongoose.connect('mongodb://127.0.0.1:27017/vidjot-dev');
@@ -68,6 +69,11 @@ app.get('/about', (req, res) => {
 // use routes
 app.use('/ideas', ideas);
 app.use('/users', users);
+
+// passport config
+require('./config/passport')(passport);
+
+mongoose.Promise = global.Promise;
 
 const port = 5000;
 app.listen(port, () => {
